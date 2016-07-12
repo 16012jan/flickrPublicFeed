@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flickr Gallery</title>
+		<link rel="stylesheet" href="css/skeleton.css">
+		<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<header id="header">
+		<h1>Flickr Public Feed</h1>
+	</header>
+
+	<main id="main-content">
+		<section id="search">
+			<form id="filter">
+				<div class="row">
+	    		<div class="six columns">
+	      		<label for="sort-field">Sort by:</label>
+	      		<select id="feedfilter">
+							<option value="all"></option>
+							<option value="by-date">Date</option>
+							<option value="by-title">Title</option>
+						</select>
+	    		</div>
+
+	    		<div class="six columns">
+	    			<label for="tag-filter">Filter:</label>
+						<input type="text" id="feedtags">
+					</div>
+	    	</div>
+			</form>
+		</section>
+
+		<section id="gallery">
+			<div id="fplace">
+			</div> 
+		</section>
+	</main>
+
+	<script src="js/script.js"></script>
+	
+</body>
+</html>
