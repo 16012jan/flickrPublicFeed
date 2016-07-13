@@ -27,9 +27,13 @@
 
 function drawFeed(){
 	var fplace = document.getElementById('fplace');
+	var row = document.createElement('div');
+  row.className = 'row';
 	flickrFeeds.feed
 		.forEach(function(item, index){
-			fplace.innerHTML += '\
+			var col = document.createElement('div');
+  		col.className = 'four columns';
+			col.innerHTML = '\
 					<article class="picture-item"> \
             <div class="image">\
               <img src="' + item.media.m + '" alt="picture">\
@@ -39,5 +43,14 @@ function drawFeed(){
               <p><strong>Date: </strong>' + item.date_taken + '</p> \
             </div> \
           </article>';
+          row.appendChild(col);
+          if ((index + 1) % 3 === 0) {
+          fplace.appendChild(row);
+          row = document.createElement('div');
+          row.className = 'row';
+        } 
 	});
+		if(row.children.length !== 0) {
+			fplace.appendChild(row);
+		}
 }
