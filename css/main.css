@@ -1,0 +1,105 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+body,html,header,article,h1,h5,p {
+	margin: 0;
+	padding:0;
+}
+
+body {
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	background: #ecf0f1;
+	font-family: 'Raleway', sans-serif;
+	margin: 0 auto;
+	width: 80%;
+}
+
+header {
+	background: #e74c3c;
+	border-bottom: 7px solid #3498db;
+	height: 150px;
+	text-align: center;
+	width: 100%;
+}
+
+header h1 {
+	color: #fff;
+	font-family: 'Dancing Script', cursive;
+	font-size: 2em;
+	line-height: 150px;
+}
+
+main {
+	background: #fff;
+	overflow: auto;
+
+}
+
+form#filter {
+	margin: 0 0 0 auto;
+	width:60%;
+	text-align: center;
+	padding: 30px;
+}
+
+form#filter input {
+	width: 70%;
+}
+
+form#filter select {
+	width: 50%;
+}
+
+form#filter label {
+	color: #7f8c8d;
+	display: inline;
+}
+
+#gallery {
+	margin: 0 4%;
+	width:92%;
+}
+
+#gallery article {
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	margin-bottom: 30px;
+}
+
+#fplace a {
+	text-decoration: none;
+}
+
+.image {
+	background: #fff;
+	height: auto;
+	width: 100%;
+}
+
+.image img {
+	height: auto;
+	width: 100%;
+}
+
+.img-text {
+	color: #fff;
+	background: #3498db;
+	padding: 10px 15px;
+}
+
+footer {
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+footer p{
+	color: #777;
+}
+
+@media only screen and (max-width: 700px ) {
+
+	form#filter {
+		width: 80%;
+		text-align: right;
+	}
+
+}

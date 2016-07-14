@@ -20,11 +20,11 @@ function drawFeed(){
 	var fplace = document.getElementById('fplace');
 	fplace.innerHTML = '';
 	var row = document.createElement('div');
-  row.className = 'row';
+  row.className = 'row'; 
 	flickrFeeds.feed
 		.sort(compare(filter))
 		.forEach(function(item, index){
-			var sourceSquare = (item.media.m).replace("_m.jpg", "_q.jpg");
+			var sourceSquare = (item.media.m).replace("_m.jpg", "_q.jpg");   // size suffix _q large square 150x150
 			var col = document.createElement('div');
   		col.className = 'three columns';
 			col.innerHTML = '\
@@ -34,8 +34,8 @@ function drawFeed(){
 	              <img src="' + sourceSquare + '" alt="picture">\
 	            </div>\
 	            <div class="img-text"> \
-	              <h5><strong>' + item.title + '</strong></h5> \
-	              <p><strong>Date: </strong>' + item.date_taken + '</p> \
+	              <h5><strong>' + trimTitle(item.title) + '</strong></h5> \
+	              <p><strong>Date: </strong>' + formatDate(item.date_taken) + '</p> \
 	            </div> \
 	          </article>\
 	        </a>';
@@ -52,18 +52,31 @@ function drawFeed(){
 	}
 }
 
+function trimTitle(str){
+	if (str.length > 12) {
+		str = str.slice(0, 12) + "...";
+	}
+	return str;
+}
+
+function formatDate(date) {
+	return new Date(date).toDateString(); 
+}
+
 
 var feedtags = document.getElementById('feedtags');
 feedtags.addEventListener('change', function(){
 	var url;
-		if (!feedtags.value) {
-			url = flickrFeeds.flickrOptions.url;
-		}else {
+
+	if (!feedtags.value) {
+		url = flickrFeeds.flickrOptions.url;
+	}else {
 		var pos = flickrFeeds.flickrOptions.url.indexOf('&tags=')
 		url = flickrFeeds.flickrOptions.url.slice(0, pos) + '&tags=' + feedtags.value;
-		}
-		flickrFeeds.flickrOptions.url = url;
-		init();
+	}
+
+	flickrFeeds.flickrOptions.url = url;
+	init();
 }, false);
 
 
